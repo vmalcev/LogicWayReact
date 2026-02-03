@@ -19,11 +19,30 @@ export default function ContactForm() {
     privacy: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Messaggio inviato correttamente!");
+      setFormData({ nome: "", cognome: "", email: "", messaggio: "", privacy: false });
+    } else {
+      alert("Errore: " + data.error);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Errore imprevisto nell'invio dell'email.");
+  }
+};
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

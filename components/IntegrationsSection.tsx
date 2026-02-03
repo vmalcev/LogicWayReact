@@ -7,12 +7,13 @@ export default function IntegrationsSection() {
            ERP
          </h2>
         </div>
-
-        <div className="mt-16 flex justify-center items-center space-x-12">
+    <div className="flex justify-center">
+        <div className="flex justify-center items-center space-x-12">
           <img src="jgalileo.webp" alt="" className="h-32 w-auto" />
         </div>
         <div className="flex justify-center items-center ">
           <img src="esolver.webp" alt="" className="h-32 w-auto" />
+        </div>
         </div>
       </div>
     </section>

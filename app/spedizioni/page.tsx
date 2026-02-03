@@ -1,9 +1,7 @@
 "use client";
-import Header from "@/components/Header";
 import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
 import Link from "next/link";
 import { Truck, Move, ClipboardList, LineChart, Route, Tags, Search, CheckCircle } from "lucide-react";
-import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import VimeoInventario from "@/components/VimeoRicevimento";
@@ -42,15 +40,14 @@ function AnimatedTimelineItem({
 
 export default function Spedizioni() {
   return (
-    <div>
-      <Header />
+    <>
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-            <video src="video/spedizioni.mp4" autoPlay loop muted controls={false} />
+            <video src="/video/spedizioni.mp4" autoPlay loop muted controls={false} />
             <ScrollDownArrow targetId="contenuto-ricevimento" />
           </div>
-          <div id="contenuto-ricevimento" className="pt-[10vh] text-black mt-8">
+          <main id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <h2
               className="text-[35px] font-bold mb-4 text-center">
               SPEDIZIONI
@@ -69,27 +66,27 @@ export default function Spedizioni() {
               di carico del camion per accertarsi che venga consegnata la merce
               corretta.
             </p>
-          </div>
+          </main>
         
       </div>
 
       {/* solo mobile */}
       <div className="block md:hidden">
-        <div className="absolute inset-0 w-full h-full z-[-1] pointere-events-none">
-          <video src="video/spedizioni_mobile.mp4" autoPlay
+        <div className="w-full h-auto z-[-1] pointer-events-none relative">
+          <video src="/video/spedizioni_mobile.mp4" autoPlay
     loop
     muted
     playsInline
     className="w-full h-auto object-cover" ></video>
         </div>
-        <div >
-          <h2 className="w-[90%] mx-auto text-black text-2xl font-bold pt-16 leading-snug">
+        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-[35px] font-bold mb-4 text-center">
             SPEDIZIONI
           </h2>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-[27px] font-normal mb-8 text-center">
             Flussi controllati e ottimizzati
           </p>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-[16px] font-normal mb-8 ">
             LogicWay consente di gestire i flussi di uscita della merce. Dispone
             di strumenti per calcolare il percorso di picking migliore per
             ottimizzare i tempi di preparazione, consente di etichettare i colli
@@ -97,7 +94,7 @@ export default function Spedizioni() {
             È oltretutto effettuare un ulteriore controllo in fase di carico del
             camion per accertarsi che venga consegnata la merce corretta.
           </p>
-        </div>
+        </main>
       </div>
 
       {/* solo pc */}
@@ -221,8 +218,6 @@ export default function Spedizioni() {
       </div>
 
       <Elenco />
-
-      <Footer />
-    </div>
+    </>
   );
 }

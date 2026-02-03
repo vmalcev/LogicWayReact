@@ -1,9 +1,7 @@
 "use client";
-import Header from "@/components/Header";
 import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
 import Link from "next/link";
 import { Truck, Move, ClipboardList, LineChart } from "lucide-react";
-import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react"; 
 import VimeoInventario from "@/components/VimeoRicevimento";
@@ -43,29 +41,28 @@ function AnimatedTimelineItem({
 export default function Ricevimento() {
 
   return (
-    <div>
-      <Header />
+    <>
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-          <video src="video/ricevimento.mp4" autoPlay loop muted controls={false} />
+          <video src="/video/ricevimento.mp4" autoPlay loop muted controls={false} />
            <ScrollDownArrow targetId="contenuto-ricevimento" />
         </div>
 
 
-        <div id="contenuto-ricevimento" className="relative top-20 pt-[10vh]">
-          <h2 className="text-black text-[35px] font-bold w-11/12 mx-auto text-center">
+        <main id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-black text-[35px] font-bold text-center">
             RICEVIMENTO
           </h2>
           <p
-            className="text-black text-[27px] font-normal leading-31px mx-auto w-11/12 text-center"
+            className="text-black text-[27px] font-normal leading-31px text-center"
           >
             Tutto sotto controllo, da subito
           </p>
           <br />
           <br />
           <p
-            className="w-11/12 mx-auto text-black text-[16px] font-normal leading-[31px]"
+            className="text-black text-[16px] font-normal leading-[31px]"
           >
             Stampare barcode, evadere un ordine di acquisto esistente o
             registrare un documento di carico ex novo. LogicWay guida
@@ -73,33 +70,37 @@ export default function Ricevimento() {
             effettua controlli di quadratura. In questa fase si possono anche
             battezzare i lotti, le scadenze e le matricole.
           </p>
-        </div>
+        </main>
       </div>
 
       {/* solo mobile */}
       <div className="block md:hidden">
-        <div className="absolute inset-0 w-full h-full z-[-1] pointer-events-none">
-          <video src="video/ricevimento_mobile.mp4" autoPlay
+        <div className="w-full h-auto z-[-1] pointer-events-none relative">
+  <video
+    src="/video/ricevimento_mobile.mp4"
+    autoPlay
     loop
     muted
     playsInline
-    className="w-full h-auto object-cover" />
-        </div>
-        <div >
-          <h2 className="w-[90%] mx-auto text-black text-2xl font-bold pt-16 leading-snug">
+    className="w-full h-auto object-cover"
+  />
+</div>
+
+        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             RICEVIMENTO
           </h2>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             Tutto sotto controllo, da subito
           </p>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             Stampare barcode, evadere un ordine di acquisto esistente o
             registrare un documento di carico ex novo. LogicWay guida
             l'operatore al posizionamento della merce nel magazzino ed
             effettua controlli di quadratura. In questa fase si possono anche
             battezzare i lotti, le scadenze e le matricole.
           </p>
-        </div>
+        </main>
       </div>
 
       {/* solo pc */}
@@ -219,9 +220,7 @@ export default function Ricevimento() {
       </div>
 
       <Elenco />
-
-      <Footer />
-    </div>
+    </>
   );
 }
 

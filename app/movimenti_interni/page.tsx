@@ -1,9 +1,7 @@
 "use client";
-import Header from "@/components/Header";
 import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
 import Link from "next/link";
 import { Truck, Move, ClipboardList, LineChart, Database, UserCog, Settings } from "lucide-react";
-import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import VimeoInventario from "@/components/VimeoRicevimento";
@@ -41,13 +39,12 @@ function AnimatedTimelineItem({
 
 export default function Movimenti_interni() {
   return (
-    <div>
-      <Header />
+    <>
       {/* desktop 545039657*/}
       <div className="hidden md:block">
         <div className="bg-black ">
      <video
-  src="video/movimenti_interni_mobile.mp4"
+  src="/video/movimenti_interni.mp4"
   autoPlay
   loop
   muted
@@ -58,31 +55,31 @@ export default function Movimenti_interni() {
            <ScrollDownArrow targetId="contenuto-movimento-interno" />
 
           </div>
-        <div >
+        <main id="contenuto-movimento-interno" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           
-          <h2 id="contenuto-movimento-interno" className="w-[78%] mx-auto text-black text-[35px] font-bold relative text-center mt-[4vh] pt-[10vh]">
+          <h2 className="text-black text-[35px] font-bold relative text-center mt-[4vh]">
               MOVIMENTI INTERNI{" "}
             </h2>
-            <p className="w-[78%] mx-auto text-black text-[27px] font-normal text-center">
+            <p className="text-black text-[27px] font-normal text-center">
               Organizzazione e ottimizzazione
             </p>
             
             <br />
-            <p className="w-[78%] mx-auto text-black text-[16px] font-normal">
+            <p className="text-black text-[16px] font-normal">
               All’interno del capannone la merce può essere spostata tra diversi
               magazzini o diverse collocazioni per questioni organizzative.
               LogicWay dispone di un modulo altamente configurabile per poter
               creare flussi di spostamento in autonomia.
             </p>
           
-        </div>
+        </main>
       </div>
 
       {/* solo mobile */}
       <div className="block md:hidden">
         <div className="w-full h-auto z-[-1] pointer-events-none">
   <video
-    src="video/movimenti_interni_mobile.mp4"
+    src="/video/movimenti_interni_mobile.mp4"
     autoPlay
     loop
     muted
@@ -90,20 +87,20 @@ export default function Movimenti_interni() {
     className="w-full h-auto object-cover"
   />
 </div>
-        <div>
-          <h2 className="w-[90%] mx-auto text-black text-2xl font-bold pt-16 leading-snug">
+        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             MOVIMENTI INTERNI
           </h2>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             Organizzazione e ottimizzazione
           </p>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             All’interno del capannone la merce può essere spostata tra diversi
             magazzini o diverse collocazioni per questioni organizzative.
             LogicWay dispone di un modulo altamente configurabile per poter
             creare flussi di spostamento in autonomia.
           </p>
-        </div>
+        </main>
       </div>
 
       {/* solo pc */}
@@ -192,8 +189,6 @@ export default function Movimenti_interni() {
       </div>
 
       <Elenco />
-
-      <Footer />
-    </div>
+    </>
   );
 }

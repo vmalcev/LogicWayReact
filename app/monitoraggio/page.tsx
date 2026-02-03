@@ -1,7 +1,5 @@
-import Header from "@/components/Header";
 import { Bolt, History, CheckCircle, BarChart } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
-import Footer from "@/components/Footer";
 import Elenco from "@/components/Elenco";
 import VimeoInventario from "@/components/VimeoRicevimento";
 import VimeoInventarioMobile from "@/components/VimeoRicevimentoMobile";
@@ -9,16 +7,15 @@ import ScrollDownArrow from "@/components/ScrollDownArrow";
 
 export default function Monitoraggio() {
   return (
-    <div>
-      <Header />
+    <>
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-           <video src="video/monitoraggio.mp4" autoPlay loop muted controls={false} />
+           <video src="/video/monitoraggio.mp4" autoPlay loop muted controls={false} />
            <ScrollDownArrow targetId="contenuto-monitoraggio" />
            </div>
           
-          <div id="contenuto-monitoraggio" className="pt-[10vh] w-[78%] mx-auto text-black mt-8">
+          <main id="contenuto-monitoraggio" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <h2 className="text-[35px] font-bold text-center" >
               MONITORAGGIO
             </h2>
@@ -33,15 +30,14 @@ export default function Monitoraggio() {
               consultare lo storico dei movimenti e l’efficienza degli
               operatori.
             </p>
-          </div>
+          </main>
         
       </div>
 
       {/* solo pc */}
       <div className="hidden md:block">
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          style={{ padding: "5vh 8vw" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
@@ -157,36 +153,36 @@ export default function Monitoraggio() {
 
       {/* solo mobile */}
       <div className="block md:hidden">
-        <div className="absolute inset-0 w-full h-full z-[-1] pointere-events-none">
-          <video src="video/monitoraggio_mobile.mp4" autoPlay
+         <div className="w-full h-auto z-[-1] pointer-events-none">
+          <video src="/video/monitoraggio_mobile.mp4" autoPlay
     loop
     muted
     playsInline
     className="w-full h-auto object-cover" />
         </div>
-        <div >
-          <h2 className="w-[90%] mx-auto text-black text-2xl font-bold pt-16 leading-snug">
+        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             MONITORAGGIO
           </h2>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             Situazione magazzino in tempo reale e in qualsiasi momento
           </p>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             Sono molteplici gli strumenti a disposizione per monitorare lo stato
             del magazzino. È possibile monitorare la situazione in tempo reale
             controllando la merce in corso di movimentazione e i picking attivi,
             analizzare le giacenze e i documenti generati, oltre che consultare
-            lo storico dei movimenti e l’efficienza degli operatori.
+            lo storico dei movimenti e l’efficienza degli
+            operatori.
           </p>
-        </div>
+        </main>
       </div>
 
       <div>
         {/* solo mobile */}
         <div className="block md:hidden">
           <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            style={{ padding: "5vh 8vw" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
           >
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
@@ -303,8 +299,6 @@ export default function Monitoraggio() {
       </div>
 
       <Elenco />
-
-      <Footer />
-    </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ import {Paintbrush , AppWindow, TabletSmartphone } from "lucide-react";
 
 export default function Caratteristiche(){
     return(
-      <div>
+      <div className="px-[10vw] md:px-[30vw] py-[10vh]">
         <div id="caratteristiche" className="flex items-center justify-center mt-4">
           <h2 className="text-2xl font-bold mb-4 py-12 text-blue">Caratteristiche</h2>
         </div>

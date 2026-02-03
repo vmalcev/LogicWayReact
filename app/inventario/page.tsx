@@ -1,10 +1,8 @@
 "use client";
 
-import Header from "@/components/Header";
 import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
 import Link from "next/link";
 import { Truck, Move, ClipboardList, LineChart, Plus, FileText, CheckCircle } from "lucide-react";
-import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import VimeoInventario from "@/components/VimeoRicevimento";
@@ -44,29 +42,27 @@ function AnimatedTimelineItem({
 
 export default function Inventario() {
   return (
-    <div>
-      <Header />
-
+    <>
       {/* solo pc */}
 
       <div className="hidden md:block">
 
         <div className="bg-black">
-           <video src="video/inventario.mp4" autoPlay loop muted controls={false} />
+           <video src="/video/inventario.mp4" autoPlay loop muted controls={false} />
             <ScrollDownArrow targetId="contenuto-inventario" />
            
           </div>
-            <div id="contenuto-inventario" className="pt-[10vh]">
+            <main id="contenuto-inventario" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           
-            <h2 className="w-[78%] mx-auto text-black text-center text-[35px] font-bold mt-8 ">
+            <h2 className="text-black text-center text-[35px] font-bold mt-8 ">
               INVENTARIO
             </h2>
-            <p className="w-[78%] mx-auto text-black text-[27px] text-center font-normal ">
+            <p className="text-black text-[27px] text-center font-normal ">
               Conteggi globali o parziali e monitoraggio
             </p>
             <br />
             <br />
-            <p className="w-[78%] mx-auto text-black text-[16px] font-normal ">
+            <p className="text-black text-[16px] font-normal ">
             
               LogicWay per essere efficiente necessita che le giacenze di
               magazzino siano coerenti ai dati caricati a sistema. Con la
@@ -77,7 +73,7 @@ export default function Inventario() {
               rettifiche.
             </p>
           
-        </div>
+        </main>
       </div>
 
       {/* solo mobile */}
@@ -85,7 +81,7 @@ export default function Inventario() {
         
         
         <div>
-          <video src="video/inventario_mobile.mp4" autoPlay
+          <video src="/video/inventario_mobile.mp4" autoPlay
     loop
     muted
     playsInline
@@ -93,14 +89,14 @@ export default function Inventario() {
 
         </div>
 
-        <div className="">
-          <h2 className="w-[90%] mx-auto text-black text-2xl font-bold pt-16 leading-snug">
+        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             INVENTARIO
           </h2>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             Conteggi globali o parziali e monitoraggio
           </p>
-          <p className="w-[90%] mx-auto text-black text-base pt-4 leading-snug">
+          <p className="text-black text-base pt-4 leading-snug">
             LogicWay per essere efficiente necessita che le giacenze di
             magazzino siano coerenti ai dati caricati a sistema. Con la
             procedura di inventario è possibile conteggiare i prodotti a
@@ -108,7 +104,7 @@ export default function Inventario() {
             una dashboard di controllo per monitorare lo stato avanzamento
             lavori e dei report per calcolare il costo delle rettifiche.
           </p>
-        </div>
+        </main>
       </div>
 
       {/* solo pc */}
@@ -223,8 +219,6 @@ export default function Inventario() {
       </div>
 
       <Elenco />
-
-      <Footer />
-    </div>
+    </>
   );
 }
