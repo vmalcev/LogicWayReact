@@ -41,7 +41,7 @@ export default function Monitoraggio() {
         >
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
-              className="feature-icon bg-blue-100 text-blue-600 mb-4 rounded-md p-2 "
+              className="feature-icon w-10 bg-blue-100 text-blue-600 mb-4 rounded-md p-2 "
               style={{ marginRight: "21vw" }}
             >
               <Bolt className="text-2xl w-6 h-6" />
@@ -77,7 +77,7 @@ export default function Monitoraggio() {
 
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
-              className="feature-icon bg-purple-100 text-purple-600 mb-4 rounded-md p-2 "
+              className="feature-icon w-10 bg-purple-100 text-purple-600 mb-4 rounded-md p-2 "
               style={{ marginRight: "21vw" }}
             >
               <History className="text-2xl w-6 h-6" />
@@ -125,7 +125,7 @@ export default function Monitoraggio() {
 
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
-              className="feature-icon bg-green-100 text-green-600 mb-4 rounded-md p-2 "
+              className="feature-icon w-10 bg-green-100 text-green-600 mb-4 rounded-md p-2 "
               style={{ marginRight: "21vw" }}
             >
               <BarChart className="text-2xl w-6 h-6" />
@@ -186,7 +186,7 @@ export default function Monitoraggio() {
           >
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
-                className="feature-icon bg-blue-100 text-blue-600 mb-4 rounded-md p-2 "
+                className="feature-icon w-10 bg-blue-100 text-blue-600 mb-4 rounded-md p-2 "
                 style={{ marginRight: "63vw" }}
               >
                 <Bolt className="text-2xl w-6 h-6" />
@@ -222,7 +222,7 @@ export default function Monitoraggio() {
 
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
-                className="feature-icon bg-purple-100 text-purple-600 mb-4 rounded-md p-2 "
+                className="feature-icon w-10 bg-purple-100 text-purple-600 mb-4 rounded-md p-2 "
                 style={{ marginRight: "63vw" }}
               >
                 <History className="text-2xl w-6 h-6" />
@@ -270,7 +270,7 @@ export default function Monitoraggio() {
 
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
-                className="feature-icon bg-green-100 text-green-600 mb-4 rounded-md p-2 "
+                className="feature-icon w-10 bg-green-100 text-green-600 mb-4 rounded-md p-2 "
                 style={{ marginRight: "63vw" }}
               >
                 <BarChart className="text-2xl w-6 h-6" />
