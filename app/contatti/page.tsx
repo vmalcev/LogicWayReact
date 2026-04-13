@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LogicWay",
     locale: "it_IT",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Contattaci" }],
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "LogicWay - Contattaci" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contattaci - Richiedi Demo Gratuita LogicWay",
     description: "Richiedi una demo personalizzata di LogicWay. Sistemi Tre s.r.l., Alba (CN).",
-    images: ["/og-image.webp"],
+    images: ["/api/og"],
   },
 };
 

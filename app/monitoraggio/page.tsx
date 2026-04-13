@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LogicWay",
     locale: "it_IT",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Modulo Monitoraggio Magazzino" }],
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "LogicWay - Modulo Monitoraggio Magazzino" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Monitoraggio Magazzino Real-Time - LogicWay WMS",
     description: "Dashboard real-time e statistiche operatori per il controllo totale del magazzino.",
-    images: ["/og-image.webp"],
+    images: ["/api/og"],
   },
 };
 

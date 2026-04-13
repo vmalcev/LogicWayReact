@@ -69,21 +69,12 @@ export const metadata: Metadata = {
     title: "LogicWay - Software WMS per Gestione Magazzino e Logistica",
     description:
       "Software modulare per la gestione ottimizzata di magazzino e logistica. Ricevimento, inventario, movimenti interni, spedizioni e monitoraggio in tempo reale.",
-    images: [
-      {
-        url: "/og-image.webp",
-        width: 1200,
-        height: 630,
-        alt: "LogicWay - Software WMS per Gestione Magazzino",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "LogicWay - Software WMS per Gestione Magazzino",
     description:
       "Software modulare per la gestione ottimizzata di magazzino e logistica. Sviluppato da Sistemi Tre s.r.l.",
-    images: ["/og-image.webp"],
   },
   alternates: {
     canonical: "https://logic-way.it",

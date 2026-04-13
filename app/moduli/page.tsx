@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LogicWay",
     locale: "it_IT",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Moduli Software WMS" }],
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "LogicWay - Moduli Software WMS" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Moduli LogicWay - Software WMS Completo",
     description: "5 moduli core + moduli extra per la gestione completa del magazzino.",
-    images: ["/og-image.webp"],
+    images: ["/api/og"],
   },
 };
 

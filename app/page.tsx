@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LogicWay",
     locale: "it_IT",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Software WMS per Gestione Magazzino" }],
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "LogicWay - Software WMS per Gestione Magazzino" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "LogicWay - Software WMS Modulare per Magazzino e Logistica",
     description: "Software WMS modulare che cresce con le tue esigenze. Richiedi una demo gratuita.",
-    images: ["/og-image.webp"],
+    images: ["/api/og"],
   },
 };
 

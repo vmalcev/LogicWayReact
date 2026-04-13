@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LogicWay",
     locale: "it_IT",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Modulo Spedizioni e Picking" }],
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "LogicWay - Modulo Spedizioni e Picking" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Spedizioni e Picking Ottimizzato - LogicWay WMS",
     description: "Picking ottimizzato con percorso calcolato e controllo real-time dei prelievi.",
-    images: ["/og-image.webp"],
+    images: ["/api/og"],
   },
 };
 

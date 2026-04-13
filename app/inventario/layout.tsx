@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LogicWay",
     locale: "it_IT",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Modulo Inventario Magazzino" }],
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "LogicWay - Modulo Inventario Magazzino" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Inventario Magazzino - LogicWay WMS",
     description: "Inventario globale o parziale con dashboard real-time e report automatici.",
-    images: ["/og-image.webp"],
+    images: ["/api/og"],
   },
 };
 
