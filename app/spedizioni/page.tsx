@@ -1,53 +1,21 @@
 "use client";
-import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
-import Link from "next/link";
-import { Truck, Move, ClipboardList, LineChart, Route, Tags, Search, CheckCircle } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import VimeoInventario from "@/components/VimeoRicevimento";
-import VimeoInventarioMobile from "@/components/VimeoRicevimentoMobile";
+import { ClipboardList, Route, Tags, Search, CheckCircle } from "lucide-react";
 import Elenco from "@/components/Elenco";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ScrollDownArrow from "@/components/ScrollDownArrow";
-
-function AnimatedTimelineItem({
-  icon,
-  text,
-}: {
-  icon: React.ReactNode;
-  text: string;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40% 0px -40% 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="timeline-item relative pl-16 mb-12"
-    >
-      <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-[#f6de34] flex items-center justify-center text-white mt-[2.8vh]  ">
-        {icon}
-      </div>
-      <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800">{text}</h3>
-      </div>
-    </motion.div>
-  );
-}
+import AnimatedTimelineItem from "@/components/AnimatedTimelineItem";
 
 export default function Spedizioni() {
   return (
     <>
+      <h1 className="sr-only">Spedizioni e Picking Ottimizzato - Modulo LogicWay WMS</h1>
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-            <video src="/video/spedizioni.mp4" autoPlay loop muted controls={false} />
+            <video src="/video/spedizioni.mp4" autoPlay loop muted controls={false} preload="metadata" />
             <ScrollDownArrow targetId="contenuto-ricevimento" />
           </div>
-          <main id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <h2
               className="text-[35px] font-bold mb-4 text-center">
               SPEDIZIONI
@@ -66,7 +34,7 @@ export default function Spedizioni() {
               di carico del camion per accertarsi che venga consegnata la merce
               corretta.
             </p>
-          </main>
+          </div>
         
       </div>
 
@@ -77,16 +45,17 @@ export default function Spedizioni() {
     loop
     muted
     playsInline
+    preload="metadata"
     className="w-full h-auto object-cover" ></video>
         </div>
-        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-[35px] font-bold mb-4 text-center">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-[35px] font-bold mb-4 text-center">
             SPEDIZIONI
           </h2>
-          <p className="text-[27px] font-normal mb-8 text-center">
+          <p className="text-lg sm:text-[27px] font-normal mb-8 text-center">
             Flussi controllati e ottimizzati
           </p>
-          <p className="text-[16px] font-normal mb-8 ">
+          <p className="text-base sm:text-[16px] font-normal mb-8">
             LogicWay consente di gestire i flussi di uscita della merce. Dispone
             di strumenti per calcolare il percorso di picking migliore per
             ottimizzare i tempi di preparazione, consente di etichettare i colli
@@ -94,7 +63,7 @@ export default function Spedizioni() {
             È oltretutto effettuare un ulteriore controllo in fase di carico del
             camion per accertarsi che venga consegnata la merce corretta.
           </p>
-        </main>
+        </div>
       </div>
 
       {/* solo pc */}
@@ -145,7 +114,7 @@ export default function Spedizioni() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-              Processo di Ricevimento
+              Processo di Spedizioni
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">

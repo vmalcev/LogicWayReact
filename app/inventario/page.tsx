@@ -1,58 +1,24 @@
 "use client";
 
-import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
-import Link from "next/link";
-import { Truck, Move, ClipboardList, LineChart, Plus, FileText, CheckCircle } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import VimeoInventario from "@/components/VimeoRicevimento";
-import VimeoInventarioMobile from "@/components/VimeoRicevimentoMobile";
+import { ClipboardCheck, Plus, FileText, CheckCircle, LineChart } from "lucide-react";
 import Elenco from "@/components/Elenco";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ScrollDownArrow from "@/components/ScrollDownArrow";
-
-import Player from '@vimeo/player';
-function AnimatedTimelineItem({
-  icon,
-  text,
-}: {
-  icon: React.ReactNode;
-  text: string;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40% 0px -40% 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="timeline-item relative pl-16 mb-12"
-    >
-      <div className="absolute left-0 w-8 h-8 rounded-full bg-[#f6de34] flex items-center justify-center text-white mt-[2.8vh]">
-        {icon}
-      </div>
-      <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800">{text}</h3>
-      </div>
-    </motion.div>
-  );
-}
-
+import AnimatedTimelineItem from "@/components/AnimatedTimelineItem";
 export default function Inventario() {
   return (
     <>
+      <h1 className="sr-only">Inventario Magazzino - Modulo LogicWay WMS</h1>
       {/* solo pc */}
 
       <div className="hidden md:block">
 
         <div className="bg-black">
-           <video src="/video/inventario.mp4" autoPlay loop muted controls={false} />
+           <video src="/video/inventario.mp4" autoPlay loop muted controls={false} preload="metadata" />
             <ScrollDownArrow targetId="contenuto-inventario" />
            
           </div>
-            <main id="contenuto-inventario" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div id="contenuto-inventario" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           
             <h2 className="text-black text-center text-[35px] font-bold mt-8 ">
               INVENTARIO
@@ -73,7 +39,7 @@ export default function Inventario() {
               rettifiche.
             </p>
           
-        </main>
+        </div>
       </div>
 
       {/* solo mobile */}
@@ -85,11 +51,12 @@ export default function Inventario() {
     loop
     muted
     playsInline
+    preload="metadata"
     className="w-full h-auto object-cover" />
 
         </div>
 
-        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             INVENTARIO
           </h2>
@@ -104,7 +71,7 @@ export default function Inventario() {
             una dashboard di controllo per monitorare lo stato avanzamento
             lavori e dei report per calcolare il costo delle rettifiche.
           </p>
-        </main>
+        </div>
       </div>
 
       {/* solo pc */}
@@ -114,29 +81,29 @@ export default function Inventario() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-            Processo di Ricevimento
+            Processo di Inventario
           </h2>
 
           <div className="max-w-4xl mx-auto">
             <AnimatedTimelineItem
               icon={<Plus />}
-              text="Evadere un ordine a fornitore o fare un ricevimento ex-novo"
+              text="Creo un nuovo inventario che può essere globale o settoriale"
             />
             <AnimatedTimelineItem
               icon={<ClipboardCheck />}
-              text="Stampa barcode da affiggere sulla merce senza etichetta o fuori dagli standard di mercato"
+              text="Procedo con il conteggio fisico della merce tramite terminale"
             />
             <AnimatedTimelineItem
               icon={<LineChart />}
-              text="Leggere tutta la merce ricevuta e battezzo eventuali lotti, scadenze e matricole"
+              text="Monitoro lo stato avanzamento dell'inventario dalla dashboard di controllo"
             />
             <AnimatedTimelineItem
               icon={<FileText />}
-              text="Effettuare il controllo quadratura e convalidare il carico, generando il flusso di movimentazione su ERP"
+              text="Confronto le giacenze conteggiate con quelle presenti a sistema"
             />
             <AnimatedTimelineItem
               icon={<CheckCircle />}
-              text="Procedere con lo stoccaggio della merce nel posizionamento ottimale"
+              text="Convalido l'inventario e genero il report delle rettifiche"
             />
           </div>
         </div>
@@ -147,7 +114,7 @@ export default function Inventario() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-              Processo di Ricevimento
+              Processo di Inventario
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -158,7 +125,7 @@ export default function Inventario() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Evadere un ordine a fornitore o fare un ricevimento ex-novo
+                    Creo un nuovo inventario che può essere globale o settoriale
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -170,8 +137,7 @@ export default function Inventario() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Stampa barcode da affiggere sulla merce senza etichetta o
-                    fuori dagli standard di mercato
+                    Procedo con il conteggio fisico della merce tramite terminale
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -183,8 +149,7 @@ export default function Inventario() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Leggere tutta la merce ricevuta e battezzo eventuali lotti,
-                    scadenze e matricole
+                    Monitoro lo stato avanzamento dell'inventario dalla dashboard di controllo
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -196,8 +161,7 @@ export default function Inventario() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Procedere con lo stoccaggio della merce nel posizionamento
-                    ottimale
+                    Confronto le giacenze conteggiate con quelle presenti a sistema
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -209,7 +173,7 @@ export default function Inventario() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Creo un nuovo inventario che può essere globale o settoriale
+                    Convalido l'inventario e genero il report delle rettifiche
                   </CardTitle>
                 </CardContent>
               </Card>

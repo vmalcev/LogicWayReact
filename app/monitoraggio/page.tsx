@@ -1,21 +1,56 @@
+import type { Metadata } from "next";
 import { Bolt, History, CheckCircle, BarChart } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import Elenco from "@/components/Elenco";
-import VimeoInventario from "@/components/VimeoRicevimento";
-import VimeoInventarioMobile from "@/components/VimeoRicevimentoMobile";
 import ScrollDownArrow from "@/components/ScrollDownArrow";
+
+export const metadata: Metadata = {
+  title: "Monitoraggio Magazzino Real-Time - Modulo WMS",
+  description:
+    "Modulo Monitoraggio di LogicWay: situazione magazzino in tempo reale, storico movimentazioni completo, statistiche operatori, dashboard spedizioni e report personalizzati.",
+  keywords: [
+    "monitoraggio magazzino",
+    "dashboard magazzino",
+    "statistiche magazzino",
+    "storico movimentazioni",
+    "report magazzino",
+    "WMS monitoraggio",
+    "tracciabilità merce",
+    "performance operatori",
+  ],
+  alternates: {
+    canonical: "https://logic-way.it/monitoraggio",
+  },
+  openGraph: {
+    title: "Monitoraggio Magazzino Real-Time - LogicWay WMS",
+    description:
+      "Dashboard real-time, storico movimentazioni completo e statistiche operatori per il controllo totale del magazzino.",
+    url: "https://logic-way.it/monitoraggio",
+    type: "website",
+    siteName: "LogicWay",
+    locale: "it_IT",
+    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Modulo Monitoraggio Magazzino" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Monitoraggio Magazzino Real-Time - LogicWay WMS",
+    description: "Dashboard real-time e statistiche operatori per il controllo totale del magazzino.",
+    images: ["/og-image.webp"],
+  },
+};
 
 export default function Monitoraggio() {
   return (
     <>
+      <h1 className="sr-only">Monitoraggio Magazzino Real-Time - Modulo LogicWay WMS</h1>
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-           <video src="/video/monitoraggio.mp4" autoPlay loop muted controls={false} />
+           <video src="/video/monitoraggio.mp4" autoPlay loop muted controls={false} preload="metadata" />
            <ScrollDownArrow targetId="contenuto-monitoraggio" />
            </div>
           
-          <main id="contenuto-monitoraggio" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div id="contenuto-monitoraggio" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <h2 className="text-[35px] font-bold text-center" >
               MONITORAGGIO
             </h2>
@@ -30,7 +65,7 @@ export default function Monitoraggio() {
               consultare lo storico dei movimenti e l’efficienza degli
               operatori.
             </p>
-          </main>
+          </div>
         
       </div>
 
@@ -41,8 +76,7 @@ export default function Monitoraggio() {
         >
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
-              className="feature-icon w-10 bg-blue-100 text-blue-600 mb-4 rounded-md p-2 "
-              style={{ marginRight: "21vw" }}
+              className="feature-icon w-10 bg-blue-100 text-blue-600 mb-4 rounded-md p-2"
             >
               <Bolt className="text-2xl w-6 h-6" />
             </div>
@@ -77,8 +111,7 @@ export default function Monitoraggio() {
 
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
-              className="feature-icon w-10 bg-purple-100 text-purple-600 mb-4 rounded-md p-2 "
-              style={{ marginRight: "21vw" }}
+              className="feature-icon w-10 bg-purple-100 text-purple-600 mb-4 rounded-md p-2"
             >
               <History className="text-2xl w-6 h-6" />
             </div>
@@ -125,8 +158,7 @@ export default function Monitoraggio() {
 
           <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
             <div
-              className="feature-icon w-10 bg-green-100 text-green-600 mb-4 rounded-md p-2 "
-              style={{ marginRight: "21vw" }}
+              className="feature-icon w-10 bg-green-100 text-green-600 mb-4 rounded-md p-2"
             >
               <BarChart className="text-2xl w-6 h-6" />
             </div>
@@ -158,9 +190,10 @@ export default function Monitoraggio() {
     loop
     muted
     playsInline
+    preload="metadata"
     className="w-full h-auto object-cover" />
         </div>
-        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             MONITORAGGIO
           </h2>
@@ -175,7 +208,7 @@ export default function Monitoraggio() {
             lo storico dei movimenti e l’efficienza degli
             operatori.
           </p>
-        </main>
+        </div>
       </div>
 
       <div>
@@ -186,8 +219,7 @@ export default function Monitoraggio() {
           >
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
-                className="feature-icon w-10 bg-blue-100 text-blue-600 mb-4 rounded-md p-2 "
-                style={{ marginRight: "63vw" }}
+                className="feature-icon w-10 bg-blue-100 text-blue-600 mb-4 rounded-md p-2"
               >
                 <Bolt className="text-2xl w-6 h-6" />
               </div>
@@ -222,8 +254,7 @@ export default function Monitoraggio() {
 
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
-                className="feature-icon w-10 bg-purple-100 text-purple-600 mb-4 rounded-md p-2 "
-                style={{ marginRight: "63vw" }}
+                className="feature-icon w-10 bg-purple-100 text-purple-600 mb-4 rounded-md p-2"
               >
                 <History className="text-2xl w-6 h-6" />
               </div>
@@ -270,8 +301,7 @@ export default function Monitoraggio() {
 
             <Card className="rounded-xl shadow-md overflow-hidden p-6 transition duration-300 card-hover">
               <div
-                className="feature-icon w-10 bg-green-100 text-green-600 mb-4 rounded-md p-2 "
-                style={{ marginRight: "63vw" }}
+                className="feature-icon w-10 bg-green-100 text-green-600 mb-4 rounded-md p-2"
               >
                 <BarChart className="text-2xl w-6 h-6" />
               </div>

@@ -1,45 +1,13 @@
 "use client";
-import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
-import Link from "next/link";
-import { Truck, Move, ClipboardList, LineChart, Database, UserCog, Settings } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import VimeoInventario from "@/components/VimeoRicevimento";
-import VimeoInventarioMobile from "@/components/VimeoRicevimentoMobile";
+import { Database, UserCog, Settings } from "lucide-react";
 import Elenco from "@/components/Elenco";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ScrollDownArrow from "@/components/ScrollDownArrow";
-function AnimatedTimelineItem({
-  icon,
-  text,
-}: {
-  icon: React.ReactNode;
-  text: string;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40% 0px -40% 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="timeline-item relative pl-16 mb-12"
-    >
-      <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-[#f6de34] flex items-center justify-center text-white mt-[2.8vh]">
-        {icon}
-      </div>
-      <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800">{text}</h3>
-      </div>
-    </motion.div>
-  );
-}
-
+import AnimatedTimelineItem from "@/components/AnimatedTimelineItem";
 export default function Movimenti_interni() {
   return (
     <>
+      <h1 className="sr-only">Movimenti Interni Magazzino - Modulo LogicWay WMS</h1>
       {/* desktop 545039657*/}
       <div className="hidden md:block">
         <div className="bg-black ">
@@ -49,13 +17,13 @@ export default function Movimenti_interni() {
   loop
   muted
   playsInline
-  webkit-playsinline="true"
+  preload="metadata"
   controls={false}
 />
            <ScrollDownArrow targetId="contenuto-movimento-interno" />
 
           </div>
-        <main id="contenuto-movimento-interno" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div id="contenuto-movimento-interno" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           
           <h2 className="text-black text-[35px] font-bold relative text-center mt-[4vh]">
               MOVIMENTI INTERNI{" "}
@@ -72,7 +40,7 @@ export default function Movimenti_interni() {
               creare flussi di spostamento in autonomia.
             </p>
           
-        </main>
+        </div>
       </div>
 
       {/* solo mobile */}
@@ -84,10 +52,11 @@ export default function Movimenti_interni() {
     loop
     muted
     playsInline
+    preload="metadata"
     className="w-full h-auto object-cover"
   />
 </div>
-        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             MOVIMENTI INTERNI
           </h2>
@@ -100,7 +69,7 @@ export default function Movimenti_interni() {
             LogicWay dispone di un modulo altamente configurabile per poter
             creare flussi di spostamento in autonomia.
           </p>
-        </main>
+        </div>
       </div>
 
       {/* solo pc */}
@@ -139,7 +108,7 @@ export default function Movimenti_interni() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-              Processo di Ricevimento
+              Movimenti Interni
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">

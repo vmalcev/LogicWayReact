@@ -1,56 +1,24 @@
 "use client";
 import { Check, Barcode, Box, ClipboardCheck, Warehouse } from "lucide-react";
-import Link from "next/link";
-import { Truck, Move, ClipboardList, LineChart } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react"; 
-import VimeoInventario from "@/components/VimeoRicevimento";
-import VimeoInventarioMobile from "@/components/VimeoRicevimentoMobile";
 import Elenco from "@/components/Elenco";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ScrollDownArrow from "@/components/ScrollDownArrow";
-
-function AnimatedTimelineItem({
-  icon,
-  text,
-}: {
-  icon: React.ReactNode;
-  text: string;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40% 0px -40% 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="timeline-item relative pl-16 mb-12 flex items-center"
-    >
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-[#f6de34] flex items-center justify-center text-white">
-        {icon}
-      </div>
-      <div className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800">{text}</h3>
-      </div>
-    </motion.div>
-  );
-}
+import AnimatedTimelineItem from "@/components/AnimatedTimelineItem";
 
 export default function Ricevimento() {
 
   return (
     <>
+      <h1 className="sr-only">Ricevimento Merci - Modulo LogicWay WMS</h1>
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-          <video src="/video/ricevimento.mp4" autoPlay loop muted controls={false} />
+          <video src="/video/ricevimento.mp4" autoPlay loop muted controls={false} preload="metadata" />
            <ScrollDownArrow targetId="contenuto-ricevimento" />
         </div>
 
 
-        <main id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="text-black text-[35px] font-bold text-center">
             RICEVIMENTO
           </h2>
@@ -70,7 +38,7 @@ export default function Ricevimento() {
             effettua controlli di quadratura. In questa fase si possono anche
             battezzare i lotti, le scadenze e le matricole.
           </p>
-        </main>
+        </div>
       </div>
 
       {/* solo mobile */}
@@ -82,11 +50,12 @@ export default function Ricevimento() {
     loop
     muted
     playsInline
+    preload="metadata"
     className="w-full h-auto object-cover"
   />
 </div>
 
-        <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="text-black text-2xl font-bold pt-16 leading-snug">
             RICEVIMENTO
           </h2>
@@ -100,7 +69,7 @@ export default function Ricevimento() {
             effettua controlli di quadratura. In questa fase si possono anche
             battezzare i lotti, le scadenze e le matricole.
           </p>
-        </main>
+        </div>
       </div>
 
       {/* solo pc */}
@@ -115,31 +84,31 @@ export default function Ricevimento() {
               {/* <!-- Timeline Item 1 --> */}
               <AnimatedTimelineItem
                 icon={<Check />}
-                text="Creo un nuovo inventario che può essere globale o settoriale"
+                text="Evadere un ordine a fornitore o registrare un ricevimento ex-novo"
               />
 
               {/* <!-- Timeline Item 2 --> */}
               <AnimatedTimelineItem
                 icon={<Barcode />}
-                text="Creo un nuovo inventario che può essere globale o settoriale"
+                text="Stampare barcode da affiggere sulla merce senza etichetta o fuori dagli standard"
               />
 
               {/* <!-- Timeline Item 3 --> */}
               <AnimatedTimelineItem
                 icon={<Box />}
-                text="Creo un nuovo inventario che può essere globale o settoriale"
+                text="Leggere la merce ricevuta e battezzare eventuali lotti, scadenze e matricole"
               />
 
               {/* <!-- Timeline Item 4 --> */}
               <AnimatedTimelineItem
                 icon={<ClipboardCheck />}
-                text="Creo un nuovo inventario che può essere globale o settoriale"
+                text="Effettuare il controllo quadratura e convalidare il carico generando il flusso su ERP"
               />
 
               {/* <!-- Timeline Item 5 --> */}
               <AnimatedTimelineItem
                 icon={<Warehouse />}
-                text="Creo un nuovo inventario che può essere globale o settoriale"
+                text="Procedere con lo stoccaggio della merce nel posizionamento ottimale"
               />
             </div>
           </div>
@@ -162,7 +131,7 @@ export default function Ricevimento() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Creo un nuovo inventario che può essere globale o settoriale
+                    Evadere un ordine a fornitore o registrare un ricevimento ex-novo
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -174,7 +143,7 @@ export default function Ricevimento() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Creo un nuovo inventario che può essere globale o settoriale
+                    Stampare barcode da affiggere sulla merce senza etichetta o fuori dagli standard
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -186,7 +155,7 @@ export default function Ricevimento() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Creo un nuovo inventario che può essere globale o settoriale
+                    Leggere la merce ricevuta e battezzare eventuali lotti, scadenze e matricole
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -198,7 +167,7 @@ export default function Ricevimento() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Creo un nuovo inventario che può essere globale o settoriale
+                    Effettuare il controllo quadratura e convalidare il carico generando il flusso su ERP
                   </CardTitle>
                 </CardContent>
               </Card>
@@ -210,7 +179,7 @@ export default function Ricevimento() {
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl font-semibold text-gray-800">
-                    Creo un nuovo inventario che può essere globale o settoriale
+                    Procedere con lo stoccaggio della merce nel posizionamento ottimale
                   </CardTitle>
                 </CardContent>
               </Card>

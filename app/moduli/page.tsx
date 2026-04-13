@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import React from "react";
 import {
   Package,
@@ -13,15 +14,54 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
-const AccordionModuli = dynamic(() => import('@/components/AccordionModuli'))
+const AccordionModuli = dynamic(() => import('@/components/AccordionModuli'));
 import Link from "next/link";
+import Image from "next/image";
 import "../../styles/animations.css";
+
+export const metadata: Metadata = {
+  title: "Moduli Software Magazzino WMS",
+  description:
+    "Scopri tutti i moduli LogicWay: ricevimento merci, movimenti interni, inventario, monitoraggio real-time e spedizioni con picking ottimizzato. Moduli extra: vendita banco e produzione.",
+  keywords: [
+    "moduli WMS",
+    "software magazzino moduli",
+    "ricevimento merci",
+    "inventario",
+    "spedizioni picking",
+    "monitoraggio magazzino",
+    "movimenti interni",
+    "vendita banco",
+    "produzione magazzino",
+    "LogicWay moduli",
+  ],
+  alternates: {
+    canonical: "https://logic-way.it/moduli",
+  },
+  openGraph: {
+    title: "Moduli LogicWay - Software WMS Completo",
+    description:
+      "5 moduli core + moduli extra per la gestione completa del magazzino: dal ricevimento alla spedizione.",
+    url: "https://logic-way.it/moduli",
+    type: "website",
+    siteName: "LogicWay",
+    locale: "it_IT",
+    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "LogicWay - Moduli Software WMS" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Moduli LogicWay - Software WMS Completo",
+    description: "5 moduli core + moduli extra per la gestione completa del magazzino.",
+    images: ["/og-image.webp"],
+  },
+};
 
 export default function ModuliPage() {
   return (
     <>
+      <h1 className="sr-only">Moduli Software WMS LogicWay - Gestione Completa del Magazzino</h1>
       {/* DESKTOP SECTION */}
       <div className="hidden md:block">
         <div
@@ -44,8 +84,8 @@ export default function ModuliPage() {
           </div>
         </div>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-5 gap-6 animate-fade-in">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-wrap justify-center gap-6">
             {[
               {
                 title: "Ricevimento",
@@ -78,19 +118,21 @@ export default function ModuliPage() {
                 href: "/spedizioni",
               },
             ].map((modulo, idx) => (
-              <Link key={idx} href={modulo.href}>
+              <Link key={idx} href={modulo.href} className="w-full lg:w-[calc(33.333%-1rem)]">
                 <Card
-                  className="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 my-6 cursor-pointer animate-left h-full"
+                  className="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 cursor-pointer animate-left h-full"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  <CardHeader className="flex flex-col items-center">
-                    <div className="bg-[#f6de34] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                      {modulo.icon}
+                  <CardHeader>
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="bg-[#f6de34] w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+                        {modulo.icon}
+                      </div>
+                      <CardTitle className="text-lg font-bold">
+                        {modulo.title}
+                      </CardTitle>
                     </div>
-                    <CardTitle className="text-lg font-bold mb-2 text-center">
-                      {modulo.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-center">
+                    <CardDescription className="text-sm leading-relaxed">
                       {modulo.desc}
                     </CardDescription>
                   </CardHeader>
@@ -98,7 +140,7 @@ export default function ModuliPage() {
               </Link>
             ))}
           </div>
-        </main>
+        </div>
         <div className="bg-gray-100 py-16 mt-[4vh]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center animate-fade-in">
@@ -142,10 +184,13 @@ export default function ModuliPage() {
       {/* MOBILE SECTION */}
       <div className="block md:hidden">
         <div className="relative h-[250px]">
-          <img
+          <Image
             src="/images/header-moduli.webp"
             className="w-full h-full object-cover"
-            alt="background"
+            alt="Header moduli LogicWay"
+            width={800}
+            height={250}
+            priority
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <h2 className="text-white text-2xl font-bold">
@@ -154,7 +199,7 @@ export default function ModuliPage() {
           </div>
         </div>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {[
             {
               title: "Ricevimento",
@@ -203,7 +248,7 @@ export default function ModuliPage() {
               </Card>
             </Link>
           ))}
-        </main>
+        </div>
 
         <div className="bg-gray-100 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
