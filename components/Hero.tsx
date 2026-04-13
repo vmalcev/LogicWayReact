@@ -1,43 +1,27 @@
 "use client";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Vimeo from "@u-wave/react-vimeo";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 // Import dinamici (no SSR)
 const MobileVideo = dynamic(() => import('@/components/VimeoPiccolo'), { ssr: false });
 const DesktopVideo = dynamic(() => import('@/components/VimeoWrapper'), { ssr: false });
 
+import {Dialog, DialogBackdrop, DialogPanel, TransitionChild} from "@headlessui/react";
 
-
-import {Dialog, DialogBackdrop, DialogPanel, DialogTitle, Transition, TransitionChild} from "@headlessui/react";
-
-const VimeoBackground = dynamic(() => import("@/components/VimeoWrapper"), {
-  ssr: false,
-});
-
-
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < breakpoint);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, [breakpoint]);
-
-  return isMobile;
-}
 export default function Hero() {
   const [open, setOpen] = useState(false);
-  const isMobile = useIsMobile();
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden hero-home">
-      <div>
-        {isMobile ? <MobileVideo videoId="1098196396" /> : <DesktopVideo videoId="545403553" />}
+    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden hero-home" aria-label="Presentazione LogicWay">
+      {/* Mobile video - hidden on md+ */}
+      <div className="block md:hidden">
+        <MobileVideo videoId="1098196396" />
+      </div>
+      {/* Desktop video - hidden below md */}
+      <div className="hidden md:block">
+        <DesktopVideo videoId="545403553" />
       </div>
 
 
@@ -78,26 +62,41 @@ export default function Hero() {
               </Button>
             </div>
 
-            <Dialog open={open} onClose={setOpen} className="relative z-10">
-              <TransitionChild
-                as="div"
-                className="fixed inset-0 z-[99999] flex p-6"
-                enter="transition ease-out duration-300"
-                enterFrom="opacity-0 scale-75"
-                enterTo="opacity-100 scale-100"
-                leave="transition ease-out duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-75"
-              >
-                <div className="max-w-5xl mx-auto h-full flex items-center">
-                  <DialogPanel
-                    className="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden"
-                    style={{ width: "77vw", height: "38.25vw" }}
-                  >
-                    <DesktopVideo videoId="548403234" />
+            <Dialog open={open} onClose={() => setOpen(false)} className="relative z-[99999]">
+              <DialogBackdrop
+                className="fixed inset-0 bg-black/80 transition-opacity data-[closed]:opacity-0"
+              />
+              <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6">
+                <TransitionChild
+                  enter="transition ease-out duration-300"
+                  enterFrom="opacity-0 scale-90"
+                  enterTo="opacity-100 scale-100"
+                  leave="transition ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-90"
+                >
+                  <DialogPanel className="relative w-full max-w-4xl rounded-2xl shadow-2xl bg-black overflow-hidden">
+                    <button
+                      onClick={() => setOpen(false)}
+                      className="absolute top-3 right-3 z-10 rounded-full bg-black/60 p-2 text-white hover:bg-black/80 transition-colors"
+                      aria-label="Chiudi video"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                    <div className="aspect-video">
+                      {open && (
+                        <iframe
+                          src="https://player.vimeo.com/video/548403234?autoplay=1&title=0&byline=0&portrait=0"
+                          className="w-full h-full"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowFullScreen
+                          title="LogicWay - Video completo"
+                        />
+                      )}
+                    </div>
                   </DialogPanel>
-                </div>
-              </TransitionChild>
+                </TransitionChild>
+              </div>
             </Dialog>
           </div>
         </div>
