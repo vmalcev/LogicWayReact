@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
@@ -25,8 +26,8 @@ export default function Header() {
   const handleDropdownClick = () => setIsDropdownOpen(!isDropdownOpen)
 
   return (
-    <header className="bg-white shadow-sm sticky top-0" style={{ zIndex: 100 }}>
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header className="bg-white shadow-sm sticky top-0 z-[100]">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Navigazione principale">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.div
@@ -35,7 +36,7 @@ export default function Header() {
             transition={{ duration: 0.4 }}
           >
             <Link href="/" className="flex items-center">
-              <img src="/Logicway_logo.svg" alt="LogicWay" className="h-8 w-auto" />
+              <Image src="/Logicway_logo.svg" alt="LogicWay Logo" width={120} height={32} className="h-8 w-auto" style={{ width: 'auto', height: 'auto' }} />
             </Link>
           </motion.div>
 
@@ -71,11 +72,19 @@ export default function Header() {
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
                           >
+                            <Link
+                              href={item.href}
+                              className="block text-gray-800 hover:text-[#f6de34] px-3 py-2 rounded-md text-sm font-semibold transition-colors border-b border-gray-100 mb-1"
+                              onClick={() => setIsDropdownOpen(false)}
+                            >
+                              Tutti i moduli
+                            </Link>
                             {item.subItems.map((subItem, subIndex) => (
                               <Link
                                 key={subItem.name}
                                 href={subItem.href}
                                 className="block text-gray-800 hover:text-[#f6de34] px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                onClick={() => setIsDropdownOpen(false)}
                               >
                                 {subItem.name}
                               </Link>
@@ -104,7 +113,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(true)}>
+            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(true)} aria-label="Apri menu navigazione">
               <Menu className="h-6 w-6" />
             </Button>
           </div>
@@ -125,6 +134,7 @@ export default function Header() {
             <button
               className="absolute top-4 right-4 text-gray-600 hover:text-black"
               onClick={() => setIsMenuOpen(false)}
+              aria-label="Chiudi menu navigazione"
             >
               <X className="h-6 w-6" />
             </button>
@@ -142,6 +152,13 @@ export default function Header() {
                       <summary className="block text-2xl text-gray-800 font-semibold hover:text-[#f6de34] transition flex items-center justify-center space-x-2">
                         <span>{item.name}</span> <ChevronDown className="h-4 w-4" />
                       </summary>
+                      <Link
+                        href={item.href}
+                        className="block text-lg text-gray-800 font-semibold hover:text-[#f6de34] px-3 py-2 rounded-md transition-colors border-b border-gray-100 mx-8 mb-1"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Tutti i moduli
+                      </Link>
                       {item.subItems.map((subItem, subIndex) => (
                         <Link
                           key={subItem.name}

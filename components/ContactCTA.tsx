@@ -20,14 +20,16 @@ export default function ContactCTA() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-black text-black hover:bg-black hover:text-white"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              +39 0173444111
-            </Button>
+            <Link href="tel:+390173444111">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-black text-black hover:bg-black hover:text-white"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                +39 0173444111
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -114,7 +114,7 @@ function AnimatedCard({ module }: { module: (typeof modules)[0] }) {
 
 export default function ModulesSection() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50" aria-label="Moduli LogicWay">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-2xl font-bold tracking-tight">Moduli</h2>

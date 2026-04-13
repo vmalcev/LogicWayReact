@@ -3,13 +3,13 @@ import { Truck, Move, ClipboardList, LineChart } from "lucide-react";
 
 export default function Elenco() {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-gray-100" aria-label="Naviga tra i moduli LogicWay">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
           Altri Moduli
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <nav className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6" aria-label="Elenco moduli">
           <Link
             href="/ricevimento"
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:border-yellow-500 hover:shadow-md transition-all text-center"
@@ -26,7 +26,7 @@ export default function Elenco() {
           </Link>
 
           <Link
-            href="movimenti_interni"
+            href="/movimenti_interni"
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:border-yellow-500 hover:shadow-md transition-all text-center"
           >
             <div className="w-16 h-16 bg-[#f6de34] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -41,7 +41,7 @@ export default function Elenco() {
           </Link>
 
           <Link
-            href="inventario"
+            href="/inventario"
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:border-yellow-500 hover:shadow-md transition-all text-center"
           >
             <div className="w-16 h-16 bg-[#f6de34] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -56,7 +56,7 @@ export default function Elenco() {
           </Link>
 
           <Link
-            href="monitoraggio"
+            href="/monitoraggio"
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:border-yellow-500 hover:shadow-md transition-all text-center"
           >
             <div className="w-16 h-16 bg-[#f6de34] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -69,7 +69,7 @@ export default function Elenco() {
           </Link>
 
           <Link
-            href="spedizioni"
+            href="/spedizioni"
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:border-yellow-500 hover:shadow-md transition-all text-center"
           >
             <div className="w-16 h-16 bg-[#f6de34] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -82,7 +82,7 @@ export default function Elenco() {
               Gestione completa delle spedizioni
             </p>
           </Link>
-        </div>
+        </nav>
       </div>
     </section>
   );
