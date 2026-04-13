@@ -26,8 +26,8 @@ export default function Header() {
   const handleDropdownClick = () => setIsDropdownOpen(!isDropdownOpen)
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-[100]">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Navigazione principale">
+    <header className="bg-white shadow-sm sticky top-0 z-[100] overflow-hidden">
+      <nav className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8" aria-label="Navigazione principale">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.div
@@ -36,7 +36,7 @@ export default function Header() {
             transition={{ duration: 0.4 }}
           >
             <Link href="/" className="flex items-center">
-              <Image src="/Logicway_logo.svg" alt="LogicWay Logo" width={120} height={32} className="h-8 w-auto" style={{ width: 'auto', height: 'auto' }} />
+              <Image src="/Logicway_logo.svg" alt="LogicWay Logo" width={120} height={32} className="h-7 sm:h-8 w-auto" style={{ width: 'auto' }} />
             </Link>
           </motion.div>
 
