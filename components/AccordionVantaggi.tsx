@@ -5,8 +5,8 @@ import { Zap, Shield, TrendingUp } from "lucide-react";
 
 export default function AccordionVantaggi() {
   return (
-    <div id="vantaggi" className="px-[10vw] md:px-[30vw] py-[10vh]">
-      <h1 className="text-center font-bold text-2xl mb-12" style={{ fontWeight: "bold", fontSize: "24px" }}>Perché scegliere LogicWay</h1>
+    <div id="vantaggi" className="px-4 sm:px-[10vw] md:px-[30vw] py-[10vh]">
+      <h2 className="text-center font-bold text-2xl mb-12">Perché scegliere LogicWay</h2>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>

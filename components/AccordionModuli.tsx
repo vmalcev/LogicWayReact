@@ -4,8 +4,8 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 
 export default function AccordionModuli() {
   return (
-    <div style={{ padding: "10vh 4vw" }}>
-      <h1 style={{ fontWeight: "bold", fontSize: "24px", textAlign: "center" }}>FAQ</h1>
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 className="font-bold text-2xl text-center mb-8">FAQ</h2>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>
