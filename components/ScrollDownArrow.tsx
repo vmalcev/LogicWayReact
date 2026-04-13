@@ -1,27 +1,31 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
 
 export default function ScrollDownArrow({ targetId }: { targetId: string }) {
   const [showArrow, setShowArrow] = useState(true);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (window.scrollY < 10) {
-        setShowArrow(true);
-      } else {
-        setShowArrow(false);
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          setShowArrow(window.scrollY < 10);
+          ticking = false;
+        });
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTarget = () => {
+  const scrollToTarget = useCallback(() => {
     const el = document.getElementById(targetId);
     if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  }, [targetId]);
 
   return (
     showArrow && (

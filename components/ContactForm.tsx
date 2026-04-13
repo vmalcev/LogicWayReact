@@ -18,9 +18,13 @@ export default function ContactForm() {
     messaggio: "",
     privacy: false,
   });
+  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+  setStatus(null);
+  setIsSubmitting(true);
 
   try {
     const res = await fetch("/api/contact", {
@@ -32,14 +36,16 @@ export default function ContactForm() {
     const data = await res.json();
 
     if (res.ok) {
-      alert("Messaggio inviato correttamente!");
+      setStatus({ type: "success", message: "Messaggio inviato correttamente!" });
       setFormData({ nome: "", cognome: "", email: "", messaggio: "", privacy: false });
     } else {
-      alert("Errore: " + data.error);
+      setStatus({ type: "error", message: data.error || "Errore nell'invio del messaggio." });
     }
   } catch (err) {
     console.error(err);
-    alert("Errore imprevisto nell'invio dell'email.");
+    setStatus({ type: "error", message: "Errore imprevisto nell'invio dell'email." });
+  } finally {
+    setIsSubmitting(false);
   }
 };
 
@@ -152,33 +158,26 @@ export default function ContactForm() {
 
           <Button
             type="submit"
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold transition duration-300 shadow-md hover:shadow-lg"
-            disabled={!formData.privacy}
+            className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold transition duration-300 shadow-md hover:shadow-lg disabled:opacity-60"
+            disabled={!formData.privacy || isSubmitting}
           >
-            Invia
+            {isSubmitting ? "Invio in corso..." : "Invia"}
           </Button>
+
+          {status && (
+            <div
+              className={`mt-4 p-3 rounded-md text-sm font-medium ${
+                status.type === "success"
+                  ? "bg-green-50 text-green-700 border border-green-200"
+                  : "bg-red-50 text-red-700 border border-red-200"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
         </form>
       </CardContent>
 
-      <style jsx global>{`
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(12px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeInUp {
-          animation-name: fadeInUp;
-          animation-duration: 0.5s;
-          animation-fill-mode: forwards;
-          opacity: 0;
-        }
-      `}</style>
     </Card>
   );
 }

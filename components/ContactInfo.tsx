@@ -27,17 +27,17 @@ export default function ContactInfo() {
                 {
                   icon: Phone,
                   lines: ["+39 0173444111"],
-                  href: null,
+                  href: "tel:+390173444111",
                 },
                 {
                   icon: Mail,
-                  lines: ["info@sistemire.it"],
-                  href: "mailto:info@sistemire.it",
+                  lines: ["info@sistemitre.it"],
+                  href: "mailto:info@sistemitre.it",
                 },
                 {
                   icon: Globe,
-                  lines: ["www.sistemire.it"],
-                  href: "http://www.sistemire.it",
+                  lines: ["www.sistemitre.it"],
+                  href: "https://www.sistemitre.it",
                   external: true,
                 },
               ].map(({ icon: Icon, lines, href, external }, i) => (
@@ -73,25 +73,6 @@ export default function ContactInfo() {
         </CardContent>
       </Card>
 
-      <style jsx global>{`
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeInUp {
-          animation-name: fadeInUp;
-          animation-duration: 0.6s;
-          animation-fill-mode: forwards;
-          opacity: 0;
-        }
-      `}</style>
     </div>
   );
 }
