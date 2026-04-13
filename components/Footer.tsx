@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Bottom bar */}
           <div className="w-full pt-4 border-t border-black/20 space-y-2 text-[11px] text-black/50">
-            <p>P.IVA 01796450043 - CF: 04437800019</p>
+            <p>P.IVA 01764450043 - CF: 04457820019</p>
             <div className="flex justify-center gap-6">
               <span>Privacy Policy</span>
               <span>Cookie Policy</span>
@@ -120,7 +120,7 @@ export default function Footer() {
 
           <div className="mt-8 pt-8 border-t border-black/20">
             <div className="flex justify-between items-center text-black/60 text-sm">
-              <div>P.IVA 01796450043 - CF: 04437800019</div>
+              <div>P.IVA 01764450043 - CF: 04457820019</div>
               <div className="flex space-x-6">
                 <span>Privacy Policy</span>
                 <span>Cookie Policy</span>
