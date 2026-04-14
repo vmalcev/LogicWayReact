@@ -3,7 +3,7 @@ import { Paintbrush, AppWindow, TabletSmartphone } from "lucide-react";
 
 export default function Caratteristiche() {
   return (
-    <div className="px-4 sm:px-[10vw] md:px-[30vw] py-[10vh]">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-[10vh]">
       <div
         id="caratteristiche"
         className="flex items-center justify-center mt-4"
@@ -14,7 +14,7 @@ export default function Caratteristiche() {
       <div className="flex flex-col md:flex-row items-stretch justify-center gap-4">
         <Card className="w-full md:w-1/3 group hover:bg-[#f6de34] hover:text-black">
           <div className="p-6 flex items-center gap-2">
-            <AppWindow className="h-6 w-6 text-[#f6de34] group-hover:text-black" />
+            <AppWindow className="h-6 w-6 shrink-0 text-[#f6de34] group-hover:text-black" />
             <CardTitle>Webapp</CardTitle>
           </div>
           <CardContent>
@@ -30,7 +30,7 @@ export default function Caratteristiche() {
 
         <Card className="w-full md:w-1/3 group hover:bg-[#f6de34] hover:text-black">
           <div className="p-6 flex items-center gap-2">
-            <Paintbrush className="h-6 w-6 text-[#f6de34] group-hover:text-black" />
+            <Paintbrush className="h-6 w-6 shrink-0 text-[#f6de34] group-hover:text-black" />
             <CardTitle>Personalizzazione</CardTitle>
           </div>
           <CardContent>
@@ -45,7 +45,7 @@ export default function Caratteristiche() {
 
         <Card className="w-full md:w-1/3 group hover:bg-[#f6de34] hover:text-black">
           <div className="p-6 flex items-center gap-2">
-            <TabletSmartphone className="h-6 w-6 text-[#f6de34] group-hover:text-black" />
+            <TabletSmartphone className="h-6 w-6 shrink-0 text-[#f6de34] group-hover:text-black" />
             <CardTitle>Multidevice</CardTitle>
           </div>
           <CardContent>
