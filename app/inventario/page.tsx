@@ -14,7 +14,7 @@ export default function Inventario() {
       <div className="hidden md:block">
 
         <div className="bg-black">
-           <video src="/video/inventario.mp4" autoPlay loop muted controls={false} preload="metadata" />
+           <video src="/video/inventario.mp4" autoPlay loop muted playsInline controls={false} preload="metadata" />
             <ScrollDownArrow targetId="contenuto-inventario" />
            
           </div>

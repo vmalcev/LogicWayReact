@@ -12,7 +12,7 @@ export default function Spedizioni() {
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-            <video src="/video/spedizioni.mp4" autoPlay loop muted controls={false} preload="metadata" />
+            <video src="/video/spedizioni.mp4" autoPlay loop muted playsInline controls={false} preload="metadata" />
             <ScrollDownArrow targetId="contenuto-ricevimento" />
           </div>
           <div id="contenuto-ricevimento" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

@@ -13,7 +13,7 @@ export default function Ricevimento() {
       {/* solo pc */}
       <div className="hidden md:block">
         <div className="bg-black">
-          <video src="/video/ricevimento.mp4" autoPlay loop muted controls={false} preload="metadata" />
+          <video src="/video/ricevimento.mp4" autoPlay loop muted playsInline controls={false} preload="metadata" />
            <ScrollDownArrow targetId="contenuto-ricevimento" />
         </div>
 
